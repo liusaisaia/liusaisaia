@@ -1,0 +1,174 @@
+/* 自定义样式 */
+:root {
+  --vp-c-brand: #3c82f6;
+  --vp-c-brand-light: #60a5fa;
+  --vp-c-brand-lighter: #93c5fd;
+  --vp-c-brand-dark: #2563eb;
+  --vp-c-brand-darker: #1d4ed8;
+}
+
+/* 首页特效增强 */
+.VPHome {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+.dark .VPHome {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+/* 特性卡片悬停效果 */
+.VPFeature {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.VPFeature::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.05) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.VPFeature:hover::before {
+  opacity: 1;
+}
+
+.VPFeature:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+}
+
+.VPFeature .box {
+  position: relative;
+  z-index: 2;
+}
+
+/* 按钮悬停效果增强 */
+.VPButton {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.VPButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.VPButton:hover::before {
+  left: 100%;
+}
+
+.VPButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+}
+
+/* 导航栏增强 */
+.VPNavBar {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.dark .VPNavBar {
+  background: rgba(26, 26, 26, 0.8);
+}
+
+/* 英雄区域增强 */
+.VPHero {
+  position: relative;
+}
+
+.VPHero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(147, 197, 253, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.VPHero .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* 文字渐变效果 */
+.VPHero .name {
+  background: linear-gradient(135deg, var(--vp-c-brand) 0%, var(--vp-c-brand-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 响应式优化 */
+@media (max-width: 768px) {
+  .VPFeature:hover {
+    transform: none;
+  }
+
+  .VPButton:hover {
+    transform: none;
+  }
+}
+
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--vp-c-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-brand);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-c-brand-dark);
+}
+
+/* 页面加载动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.VPFeature {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.VPFeature:nth-child(1) { animation-delay: 0.1s; }
+.VPFeature:nth-child(2) { animation-delay: 0.2s; }
+.VPFeature:nth-child(3) { animation-delay: 0.3s; }
+.VPFeature:nth-child(4) { animation-delay: 0.4s; }
+.VPFeature:nth-child(5) { animation-delay: 0.5s; }
+.VPFeature:nth-child(6) { animation-delay: 0.6s; }
