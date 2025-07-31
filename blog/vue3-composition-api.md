@@ -592,5 +592,5 @@ Composition API 为 Vue 3 带来了更强大和灵活的组件开发方式：
 ---
 
 *相关文章推荐：*
-- [Vue 3 响应式系统原理解析](/blog/vue3-reactivity-system)
-- [Vue 3 性能优化最佳实践](/blog/vue3-performance-optimization)
+- [VitePress 入门指南](/blog/vitepress-getting-started)
+- [Hello World - 我的第一篇博客](/blog/hello-world)

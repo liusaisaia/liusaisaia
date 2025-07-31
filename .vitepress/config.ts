@@ -5,8 +5,7 @@ export default defineConfig({
   description: '一个使用 VitePress 构建的个人博客',
 
   // GitHub Pages 部署配置
-  // 如果你的仓库名不是 <username>.github.io，需要设置 base
-  // base: '/your-repo-name/',
+  // 仓库名与用户名相同，不需要设置 base 路径
 
   // 主题配置
   themeConfig: {
@@ -33,7 +32,7 @@ export default defineConfig({
 
     // 社交链接
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/[your-username]' }
+      { icon: 'github', link: 'https://github.com/liusaisaia' }
     ],
 
     // 页脚
@@ -49,7 +48,7 @@ export default defineConfig({
 
     // 编辑链接
     editLink: {
-      pattern: 'https://github.com/[your-username]/[your-repo]/edit/main/:path',
+      pattern: 'https://github.com/liusaisaia/liusaisaia/edit/main/:path',
       text: '在 GitHub 上编辑此页'
     },
 
@@ -78,7 +77,7 @@ export default defineConfig({
 
   // 站点地图
   sitemap: {
-    hostname: 'https://your-username.github.io'
+    hostname: 'https://liusaisaia.github.io'
   },
 
   // 清理 URL

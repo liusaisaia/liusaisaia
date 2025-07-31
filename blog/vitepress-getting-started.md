@@ -344,4 +344,3 @@ VitePress 是一个优秀的静态站点生成器，特别适合创建技术博�
 
 *相关文章推荐：*
 - [Vue 3 Composition API 深入解析](/blog/vue3-composition-api)
-- [现代前端工具链完全指南](/blog/modern-frontend-toolchain)
