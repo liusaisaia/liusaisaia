@@ -1,37 +1,67 @@
-/* 自定义样式 */
+/* Nuxt风格自定义样式 */
 :root {
-  --vp-c-brand: #3c82f6;
-  --vp-c-brand-light: #60a5fa;
-  --vp-c-brand-lighter: #93c5fd;
-  --vp-c-brand-dark: #2563eb;
-  --vp-c-brand-darker: #1d4ed8;
+  --vp-c-brand: #00dc82;
+  --vp-c-brand-light: #34d399;
+  --vp-c-brand-lighter: #6ee7b7;
+  --vp-c-brand-dark: #059669;
+  --vp-c-brand-darker: #047857;
+
+  /* Nuxt风格的颜色 */
+  --nuxt-green: #00dc82;
+  --nuxt-blue: #7877c6;
+  --nuxt-pink: #ff77c6;
+  --nuxt-sky: #78dbff;
 }
 
-/* 首页特效增强 */
+/* Nuxt风格背景 */
 .VPHome {
   position: relative;
   overflow: hidden;
   background: transparent;
 }
 
-.dark .VPHome {
-  background: transparent;
+.VPHome::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.2), transparent),
+    radial-gradient(ellipse 80% 80% at 80% 50%, rgba(0, 220, 130, 0.1), transparent),
+    radial-gradient(ellipse 100% 80% at 20% 50%, rgba(255, 119, 198, 0.08), transparent),
+    linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
 }
 
-/* 特性卡片悬停效果 */
+/* 移除点阵背景 */
+
+.dark .VPHome::before {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.15), transparent),
+    radial-gradient(ellipse 80% 80% at 80% 50%, rgba(0, 220, 130, 0.08), transparent),
+    radial-gradient(ellipse 100% 80% at 20% 50%, rgba(255, 119, 198, 0.06), transparent),
+    linear-gradient(180deg, #020420 0%, #0f0f23 100%);
+}
+
+/* 暗色主题下也移除点阵 */
+
+/* Nuxt风格特性卡片 */
 .VPFeature {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   z-index: 10;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 220, 130, 0.1);
+  border-radius: 16px;
 }
 
 .dark .VPFeature {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(2, 4, 32, 0.8);
+  border: 1px solid rgba(0, 220, 130, 0.2);
 }
 
 .VPFeature::before {
@@ -41,10 +71,14 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(147, 197, 253, 0.05) 100%);
+  background: linear-gradient(135deg,
+    rgba(0, 220, 130, 0.1) 0%,
+    rgba(120, 119, 198, 0.05) 50%,
+    rgba(255, 119, 198, 0.05) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
   z-index: 1;
+  border-radius: 16px;
 }
 
 .VPFeature:hover::before {
@@ -52,8 +86,9 @@
 }
 
 .VPFeature:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.1);
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 220, 130, 0.15);
+  border-color: rgba(0, 220, 130, 0.3);
 }
 
 .VPFeature .box {
@@ -111,12 +146,13 @@
   z-index: 11;
 }
 
-/* 文字渐变效果 */
+/* Nuxt风格文字渐变效果 */
 .VPHero .name {
-  background: linear-gradient(135deg, var(--vp-c-brand) 0%, var(--vp-c-brand-light) 100%);
+  background: linear-gradient(135deg, var(--nuxt-green) 0%, var(--nuxt-blue) 50%, var(--nuxt-pink) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  font-weight: 800;
 }
 
 /* 响应式优化 */
@@ -270,4 +306,43 @@ main {
 
 .dark .VPDoc .container {
   background: rgba(0, 0, 0, 0.1);
+}
+
+/* 调整页面底部间距 */
+.VPHome .VPHomeContent {
+  padding-bottom: 2rem;
+}
+
+.VPFooter {
+  margin-top: 2rem;
+  padding: 1.5rem 0;
+}
+
+/* 调整特性区域的间距 */
+.VPFeatures {
+  padding-bottom: 2rem;
+}
+
+/* 调整英雄区域的间距 */
+.VPHero {
+  padding-bottom: 3rem;
+}
+
+/* 整体页面容器调整 */
+.Layout {
+  min-height: auto;
+}
+
+/* 主内容区域调整 */
+.VPContent.is-home {
+  padding-bottom: 0;
+}
+
+/* 移除多余的底部空间 */
+.container {
+  padding-bottom: 0;
+}
+
+.VPHome .container {
+  padding-bottom: 1rem;
 }

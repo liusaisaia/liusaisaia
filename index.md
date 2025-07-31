@@ -2,7 +2,7 @@
 layout: home
 
 hero:
-  name: "我的博客"
+  name: "SaiSai 的博客"
   text: "分享技术、生活和思考"
   tagline: 一个热爱技术的开发者的个人博客
   image:
@@ -36,5 +36,3 @@ features:
     title: 移动友好
     details: 完美适配各种设备，随时随地享受阅读
 ---
-
-<GradientBackground />
