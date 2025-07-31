@@ -5,7 +5,8 @@ export default defineConfig({
   description: '一个使用 VitePress 构建的个人博客',
 
   // GitHub Pages 部署配置
-  // 仓库名与用户名相同，不需要设置 base 路径
+  // 设置正确的 base 路径以修复样式加载问题
+  base: '/liusaisaia/',
 
   // 主题配置
   themeConfig: {
